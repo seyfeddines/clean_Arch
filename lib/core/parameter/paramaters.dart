@@ -1,5 +1,5 @@
 class TemplateParams {
-  final String id;
+  final int id;
   TemplateParams({required this.id});
 }
 class UserParams {

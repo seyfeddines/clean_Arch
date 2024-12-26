@@ -10,7 +10,6 @@ class AdressEntity{
     required this.street,
     required this.suite,
     required this.city,
-    required this.zipcode,
     required this.geo,
   });
 }

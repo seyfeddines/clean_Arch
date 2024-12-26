@@ -18,11 +18,11 @@ class UserLocalData {
     }
 
   }
-  Future<UserModel> getLastUser() {
-    final  jsonString = cach.getData(key:"CachUser" );
-
+  Future<UserModel> getLastUser() async{
+    final  jsonString = await cach.getData(key:"CachUser" );
+    print('this is the last object :$jsonString');
     if (jsonString != null) {
-      return Future.value(UserModel.fromJson(json.decode(jsonString as String)));
+      return Future.value(UserModel.fromJson(json.decode(jsonString)));
     } else {
       throw Exception( "No Internet Connection");
     }

@@ -9,11 +9,14 @@ class Companey_model{
     required this.catchPhrase,
     required this.bs});
   factory Companey_model.fromJson(Map<String,dynamic> json){
-    return Companey_model(
+    print('try to handle companey to object');
+    Companey_model a = Companey_model(
       name: json[ApiKeys.name],
       catchPhrase: json[ApiKeys.catchPhrase],
       bs: json[ApiKeys.bs],
     );
+    print(" i seccesfuly handle to object companey");
+    return a;
   }
 
   Map<String,dynamic> toJson(){

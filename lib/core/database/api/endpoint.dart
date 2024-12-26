@@ -1,6 +1,6 @@
 class EndPoint{
   late String BaeUrl ="https://jsonplaceholder.typicode.com/";
-  late String user ="user/";
+  late String user ="users";
 }
 
 class ApiKeys {

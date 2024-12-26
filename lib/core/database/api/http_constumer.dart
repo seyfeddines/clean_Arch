@@ -41,10 +41,12 @@ class HttpConsumer extends ApiConsumer {
   Future get(String path, {Object? data, Map<String, dynamic>? queryParameters}) async {
     try {
       final uri = Uri.parse('$baseUrl$path').replace(queryParameters: queryParameters);
+      print("$baseUrl$path");
 
       // Make the GET request
-      final response = await client.get(uri);
-
+      final response = await http.get(uri);
+      print(response.body);
+      print(response.statusCode);
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
       } else {

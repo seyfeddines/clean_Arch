@@ -1,12 +1,22 @@
+import 'dart:io' show Platform; // For platform-specific checks
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
-class SecureStorageHelper{
-  SecureStorageHelper._();
-  static final SecureStorageHelper _secureStorage = SecureStorageHelper._();
-  factory SecureStorageHelper(){
-    return _secureStorage;
+class SecureStorageHelper {
+  SecureStorageHelper._() {
+    // Initialize storage differently based on platform
+    secureStorage = kIsWeb
+        ? FlutterSecureStorage() // Web-compatible initialization
+        : const FlutterSecureStorage(); // Default for mobile platforms
   }
-  final FlutterSecureStorage secureStorage = FlutterSecureStorage();
+
+  static final SecureStorageHelper _instance = SecureStorageHelper._();
+  factory SecureStorageHelper() {
+    return _instance;
+  }
+
+  late final FlutterSecureStorage secureStorage;
+
   //! Save data securely using a key
   Future<void> saveData({required String key, required String value}) async {
     await secureStorage.write(key: key, value: value);

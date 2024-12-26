@@ -5,7 +5,7 @@ import 'package:clean_arch/features/Data/Models/SubModels/companey_model.dart';
 import 'package:clean_arch/features/domain/Entities/user_Entity.dart';
 
 class UserModel extends UserEntities{
-  final String id ;
+  final int id ;
   final String username;
   final String website;
   final Companey_model companey;
@@ -21,7 +21,8 @@ class UserModel extends UserEntities{
 
 
   factory UserModel.fromJson(Map<String,dynamic> json){
-    return UserModel(
+    print('i am try to handle json to object');
+    UserModel a = UserModel(
         name: json[ApiKeys.name],
         email:  json[ApiKeys.email],
         id: json[ApiKeys.id],
@@ -31,6 +32,8 @@ class UserModel extends UserEntities{
         phone: json[ApiKeys.phone],
         address: Address_Model.fromJson(json[ApiKeys.address])
     );
+    print(' i handle the object correctly');
+    return a;
   }
 
   Map<String,dynamic> toJson(){

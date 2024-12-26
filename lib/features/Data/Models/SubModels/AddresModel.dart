@@ -8,18 +8,20 @@ class Address_Model extends AdressEntity{
     required super.street,
     required super.suite,
     required super.city,
-    required super.zipcode,
     required super.geo});
 
 
   factory Address_Model.fromJson(Map<String,dynamic> json){
-    return Address_Model(
+    print('try to handle addres to object');
+   Address_Model a =  Address_Model(
         street: json[ApiKeys.street],
         suite: json[ApiKeys.suite],
         city: json[ApiKeys.city],
-        zipcode: json[ApiKeys.zipcode],
+
         geo: GeoModel.fromJson(json[ApiKeys.geo])
     );
+    print('i handle adress to object seccfuly');
+    return a;
   }
   Map<String,dynamic> toJson(){
     return {
