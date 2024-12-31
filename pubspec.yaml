@@ -15,11 +15,12 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   http: ^1.2.2
   connectivity_plus: ^6.1.1
-  flutter_secure_storage_web: ^1.0.0
-  flutter_network_connectivity: ^0.0.6
   animated_introduction: ^1.0.4
   awesome_dialog: ^2.1.1
+  dot_curved_bottom_nav: ^0.0.1
   animate_do: ^3.3.4
+  flutter_staggered_animations: ^1.0.0
+  flutter_swiper_view: ^1.1.6
 
 dev_dependencies:
   flutter_test:

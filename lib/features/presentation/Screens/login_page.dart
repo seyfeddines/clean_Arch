@@ -164,7 +164,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 70),
+                    SizedBox(height: 20),
                     FadeInUp(
                       duration: Duration(milliseconds: 2000),
                       child: Text(
@@ -175,7 +175,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 100,),
+              SizedBox(height: 30,),
               FadeInUp(
                 duration: Duration(milliseconds: 2000),
                 child: InkWell(

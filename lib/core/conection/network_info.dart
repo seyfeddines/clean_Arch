@@ -1,4 +1,3 @@
-import 'dart:html' as html; // Import for web
 import 'package:connectivity_plus/connectivity_plus.dart'; // Import for mobile
 
 abstract class NetworkInfo {
@@ -6,29 +5,20 @@ abstract class NetworkInfo {
 }
 
 class NetworkInfoImpl implements NetworkInfo {
-  final Connectivity? connectivity;
+  final Connectivity connectivity;
 
-  // Constructor that works for both web and mobile platforms
-  NetworkInfoImpl({this.connectivity});
+  // Constructor for mobile platforms
+  NetworkInfoImpl({required this.connectivity});
 
   @override
   Future<bool> get isConnected async {
-    // Check if we're running on the web
-    if (html.window.navigator.onLine != null) {
-      // For Web, use html.window.navigator.onLine to check the connection
-      return html.window.navigator.onLine!;
-    } else if (connectivity != null) {
-      // For mobile (Android/iOS), use the Connectivity package to check connectivity
-      var connectivityResult = await connectivity!.checkConnectivity();
-
-      if (connectivityResult == ConnectivityResult.mobile ||
-          connectivityResult == ConnectivityResult.wifi) {
-        return true;
-      } else {
-        return false; // No connection
-      }
+    // Use the Connectivity package to check connectivity for Android/iOS
+    var connectivityResult = await connectivity.checkConnectivity();
+    if (connectivityResult == ConnectivityResult.mobile ||
+        connectivityResult == ConnectivityResult.wifi) {
+      return true; // Connected
     } else {
-      return false; // Default to false if connectivity is not available
+      return false; // No connection
     }
   }
 }

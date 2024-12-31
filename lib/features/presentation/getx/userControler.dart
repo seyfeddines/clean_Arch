@@ -29,7 +29,7 @@ class UserControler extends GetxController {
     try {
       var userResponse = await GetUser(
         repostries: UserRepostriesImplm(
-          networkInfo: NetworkInfoImpl(),
+          networkInfo: NetworkInfoImpl(connectivity: Connectivity()),
           remoredata: UserRemoteDataSource(api: HttpConsumer(client: http.Client())),
           localdata: UserLocalData(cach: SecureStorageHelper()),
         ),

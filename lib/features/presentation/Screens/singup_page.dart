@@ -1,5 +1,8 @@
+import 'package:clean_arch/features/presentation/Screens/home_page.dart';
+import 'package:clean_arch/features/presentation/Screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:get/get.dart';
 
 class Signup_age extends StatefulWidget {
   @override
@@ -55,7 +58,7 @@ class _Signup_ageState extends State<Signup_age> {
           child: Column(
             children: <Widget>[
               Container(
-                height: 400,
+                height: 300,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('images/background.png'),
@@ -117,7 +120,7 @@ class _Signup_ageState extends State<Signup_age> {
                           margin: EdgeInsets.only(top: 50),
                           child: Center(
                             child: Text(
-                              "Login",
+                              "sign up",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 40,
@@ -259,7 +262,9 @@ class _Signup_ageState extends State<Signup_age> {
                     FadeInUp(
                       duration: Duration(milliseconds: 1900),
                       child: InkWell(
-                        onTap: _submitForm,
+                        onTap: (){
+                          Get.to(()=>Home_page());
+                        },
                         child: Container(
                           height: 50,
                           decoration: BoxDecoration(
@@ -273,9 +278,26 @@ class _Signup_ageState extends State<Signup_age> {
                           ),
                           child: Center(
                             child: Text(
-                              "Login",
+                              "sign up",
                               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                             ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 60,),
+                    FadeInUp(
+                      duration: Duration(milliseconds: 2000),
+                      child: InkWell(
+                        onTap: () {
+                          Get.to(() => LoginPage());
+                        },
+                        child: Text(
+                          "I alreday have acount? log in.",
+                          style: TextStyle(
+                            color: Color.fromRGBO(143, 148, 251, 1),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
