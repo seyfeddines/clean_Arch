@@ -2,6 +2,7 @@
 import 'package:clean_arch/features/presentation/Widgets/Card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:like_button/like_button.dart';
 
 class Proudect_details extends StatelessWidget{
   Proudect_details({required this.product});
@@ -21,10 +22,16 @@ final Map<String, dynamic> product;
                 onPressed: () {},
                 icon: Icon(Icons.arrow_back, size: 30),
               ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.favorite_border, size: 30),
-              ),
+              title: Row(
+                children: [
+                  SizedBox(width: 220,),
+                  InkWell(
+                    child: LikeButton(
+                    ),
+                    onTap: (){},
+                  ),
+                ],
+              )
             ),
           ],
         ),
@@ -82,7 +89,7 @@ final Map<String, dynamic> product;
                 children: [
                   SizedBox(width: 20,),
                   Text('${product['price']}',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700),),
-                  SizedBox(width: 30,),
+                  SizedBox(width: 50,),
                   ElevatedButton(onPressed: (){}, child: Text('Add to card',style: TextStyle(color: Colors.white),)
                       ,style: ElevatedButton.styleFrom(
                         fixedSize: Size(170, 20),
