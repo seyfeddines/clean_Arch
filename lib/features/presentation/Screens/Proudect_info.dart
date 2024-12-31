@@ -19,7 +19,9 @@ final Map<String, dynamic> product;
             SizedBox(height: 35),
             ListTile(
               leading: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: Icon(Icons.arrow_back, size: 30),
               ),
               title: Row(
