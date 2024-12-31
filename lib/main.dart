@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     // هنا نستخدم Get.put() لإنشاء متحكم UserController
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Introscreen(),
+      home: Home_page(),
       getPages: rootPages.pages,
     );
   }
